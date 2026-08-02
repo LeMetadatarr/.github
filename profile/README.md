@@ -52,7 +52,6 @@ block plain HTTP requests.
 | [pydiscogs](https://github.com/LeMetadatarr/pydiscogs) | Discogs monthly bulk data dumps (Artists, Labels, Masters, Releases) |
 | [py_bandcamp](https://github.com/LeMetadatarr/py_bandcamp) | Bandcamp scraper — tracklists, credits, Creative Commons licensing |
 | [nuvem_de_som](https://github.com/LeMetadatarr/nuvem_de_som) | SoundCloud client |
-| [audiobooker](https://github.com/LeMetadatarr/audiobooker) | Public-domain audiobooks (LibriVox, LoyalBooks, Anna's Archive) |
 | [pymetal](https://github.com/LeMetadatarr/pymetal) | Metal Archives client |
 | [pyclassicalarchives](https://github.com/LeMetadatarr/pyclassicalarchives) | Classical Archives client |
 | [pyjazzmusicarchives](https://github.com/LeMetadatarr/pyjazzmusicarchives) | Jazz Music Archives client |
