@@ -1,7 +1,11 @@
 # LeMetadatarr
 
 LeMetadatarr is a collection of typed Python clients and scrapers for media
-and reference sources — music, video, games, books, and psychonautics data.
+and reference sources — music, video, games, books, and specialist lexicons.
+The goal is twofold: **voice-enabling websites** (typed clients that let
+voice assistants search and play from these sources) and **creating open
+datasets** for speech and NLP work — entity vocabularies, name
+pronunciations, and search-intent corpora for ASR, TTS, and NER training.
 Each client emits typed records (either the shared `mediavocab` schema for
 media releases, or a source-specific typed model), so downstream code does
 not need to special-case each site's response format.
@@ -67,13 +71,18 @@ block plain HTTP requests.
 | [pytcrf](https://github.com/LeMetadatarr/pytcrf) | The Cutting Room Floor — unused/cut/debug game content |
 | [pyvndb](https://github.com/LeMetadatarr/pyvndb) | VNDB (Visual Novel Database) client |
 
-## Psychonautics / harm reduction
+## Substance lexicons (ASR / NER data)
+
+Substance and pharmaceutical names are a hard out-of-vocabulary problem for
+speech recognition. These clients collect substance nomenclature — names,
+synonyms, and cross-references — as training data for ASR and
+entity-recognition models.
 
 | Repo | Purpose |
 | --- | --- |
-| [pyerowid](https://github.com/LeMetadatarr/pyerowid) | Erowid client and markdown dataset dumper |
-| [pypsychonaut](https://github.com/LeMetadatarr/pypsychonaut) | PsychonautWiki client and markdown dataset dumper |
-| [pytripsit](https://github.com/LeMetadatarr/pytripsit) | TripSit drug factsheets and interaction matrix |
+| [pyerowid](https://github.com/LeMetadatarr/pyerowid) | Erowid client and dataset dumper — substance-name vocabulary |
+| [pypsychonaut](https://github.com/LeMetadatarr/pypsychonaut) | PsychonautWiki client and dataset dumper — substance nomenclature and cross-references |
+| [pytripsit](https://github.com/LeMetadatarr/pytripsit) | TripSit factsheet client — substance names, aliases, and interaction metadata |
 
 ## Reference
 
@@ -81,3 +90,10 @@ block plain HTTP requests.
 | --- | --- |
 | [pygutenberg](https://github.com/LeMetadatarr/pygutenberg) | Project Gutenberg client (Gutendex API, public-domain text, bulk catalog) |
 | [pytvtropes](https://github.com/LeMetadatarr/pytvtropes) | tvtropes.org scraper |
+
+## AI transparency
+
+Most of the scrapers in this organization were written with AI assistance
+(Anthropic Claude), with human review. Dataset cards on
+[LeData](https://huggingface.co/LeData) document how each dataset was
+collected and processed.
