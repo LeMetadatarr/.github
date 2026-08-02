@@ -11,7 +11,16 @@ media releases, or a source-specific typed model), so downstream code does
 not need to special-case each site's response format.
 
 The datasets produced by these clients are published to the
-[LeData](https://huggingface.co/LeData) organization on Hugging Face.
+[LeData](https://huggingface.co/LeData) organization on Hugging Face,
+organized into collections: [Media Metadata](https://huggingface.co/collections/LeData/media-metadata-6a4952f7f8ef9e590a4e8be2),
+[Music](https://huggingface.co/collections/LeData/music-metadata-6a4953339beb85d82c863580),
+[Movies](https://huggingface.co/collections/LeData/movie-metadata-6a49537993b4d11cf9fddf37),
+[IMDB](https://huggingface.co/collections/LeData/imdb-metadata-6a49534fad51e30093e400fc),
+[Anime & Manga](https://huggingface.co/collections/LeData/anime-and-manga-metadata-6a49537092b7e578190e1211),
+[Games](https://huggingface.co/collections/LeData/games-metadata-6a495363b0032ce145576f29),
+[ROM Hacks](https://huggingface.co/collections/LeData/rom-hacks-metadata-6a49536ab0032ce145576fd6),
+[Books & Podcasts](https://huggingface.co/collections/LeData/books-and-podcasts-6a49531b6f0b826071942f29), and
+[Drugs and Substances](https://huggingface.co/collections/LeData/drugs-and-substances-6a4952c9a7b9921d3f9a3ed7).
 LeMetadatarr is the extraction layer; LeData is where the resulting
 datasets live. Most repos ship a `dataset.py` module that exports the
 client's data as Hugging Face-compatible JSONL/parquet configs, matching
@@ -32,7 +41,7 @@ block plain HTTP requests.
 
 | Repo | Purpose |
 | --- | --- |
-| [metadatarr](https://github.com/LeMetadatarr/metadatarr) | Pydantic-powered clients plus a keyless cross-source entity resolver (MusicBrainz, Wikidata, OpenLibrary, AniList, Jikan, Discogs, ...) |
+| [metadatarr](https://github.com/LeMetadatarr/metadatarr) | Pydantic-powered clients plus a keyless cross-source entity resolver (MusicBrainz, Wikidata, OpenLibrary, AniList, Jikan, Discogs, ...). Also bundles ~50 resumable dataset scrapers under `scrapers/` — drug registries (FDA, EMA, WHO ATC, ChEMBL, PubChem, RxNorm, DailyMed, KEGG and 12+ national registers), pronunciation lexicons (CMU, Wiktionary), and media catalogues (OpenLibrary, Steam, LibriVox, ListenNotes, PodcastIndex, Tidal, Deezer, TMDB, TVmaze, RAWG, RadioBrowser, Wikidata) — feeding the LeData collections |
 | [media-archivist](https://github.com/LeMetadatarr/media-archivist) | Indexes, canonicalizes, and deduplicates media catalogues from YouTube, Bandcamp, SoundCloud, and Internet Archive into a typed `mediavocab` dataset |
 
 ## Music
@@ -84,11 +93,22 @@ entity-recognition models.
 | [pypsychonaut](https://github.com/LeMetadatarr/pypsychonaut) | PsychonautWiki client and dataset dumper — substance nomenclature and cross-references |
 | [pytripsit](https://github.com/LeMetadatarr/pytripsit) | TripSit factsheet client — substance names, aliases, and interaction metadata |
 
-## Reference
+## Books & audiobooks
 
 | Repo | Purpose |
 | --- | --- |
 | [pygutenberg](https://github.com/LeMetadatarr/pygutenberg) | Project Gutenberg client (Gutendex API, public-domain text, bulk catalog) |
+| [audiobooker](https://github.com/LeMetadatarr/audiobooker) | Public-domain audiobooks (LibriVox, LoyalBooks, Anna's Archive) |
+
+Book and podcast catalogue scrapers (OpenLibrary, LibriVox, ListenNotes,
+PodcastIndex) ship inside [metadatarr](https://github.com/LeMetadatarr/metadatarr)`/scrapers/`
+and publish to the [Books & Podcasts](https://huggingface.co/collections/LeData/books-and-podcasts-6a49531b6f0b826071942f29)
+collection.
+
+## Media reference
+
+| Repo | Purpose |
+| --- | --- |
 | [pytvtropes](https://github.com/LeMetadatarr/pytvtropes) | tvtropes.org scraper |
 
 ## AI transparency
