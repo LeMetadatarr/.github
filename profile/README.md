@@ -1,0 +1,83 @@
+# LeMetadatarr
+
+LeMetadatarr is a collection of typed Python clients and scrapers for media
+and reference sources — music, video, games, books, and psychonautics data.
+Each client emits typed records (either the shared `mediavocab` schema for
+media releases, or a source-specific typed model), so downstream code does
+not need to special-case each site's response format.
+
+The datasets produced by these clients are published to the
+[LeData](https://huggingface.co/LeData) organization on Hugging Face.
+LeMetadatarr is the extraction layer; LeData is where the resulting
+datasets live. Most repos ship a `dataset.py` module that exports the
+client's data as Hugging Face-compatible JSONL/parquet configs, matching
+what is published under LeData.
+
+## Transport / infrastructure
+
+Shared low-level tooling used by the scraper clients to reach sources that
+block plain HTTP requests.
+
+| Repo | Purpose |
+| --- | --- |
+| [unblock_requests](https://github.com/LeMetadatarr/unblock_requests) | `requests.Session` subclass that bypasses Cloudflare via curl_cffi, FlareSolverr, or the Wayback Machine |
+| [anon_requests](https://github.com/LeMetadatarr/anon_requests) | Anonymous / proxy-rotated requests |
+| [sitemapper](https://github.com/LeMetadatarr/sitemapper) | Site discovery and URL enumeration (sitemap.xml, robots.txt, crawl fallback) |
+
+## Orchestration
+
+| Repo | Purpose |
+| --- | --- |
+| [metadatarr](https://github.com/LeMetadatarr/metadatarr) | Pydantic-powered clients plus a keyless cross-source entity resolver (MusicBrainz, Wikidata, OpenLibrary, AniList, Jikan, Discogs, ...) |
+| [media-archivist](https://github.com/LeMetadatarr/media-archivist) | Indexes, canonicalizes, and deduplicates media catalogues from YouTube, Bandcamp, SoundCloud, and Internet Archive into a typed `mediavocab` dataset |
+
+## Music
+
+| Repo | Purpose |
+| --- | --- |
+| [pymusicbrainz](https://github.com/LeMetadatarr/pymusicbrainz) | MusicBrainz web service and streaming bulk data dumps |
+| [pydiscogs](https://github.com/LeMetadatarr/pydiscogs) | Discogs monthly bulk data dumps (Artists, Labels, Masters, Releases) |
+| [py_bandcamp](https://github.com/LeMetadatarr/py_bandcamp) | Bandcamp scraper — tracklists, credits, Creative Commons licensing |
+| [nuvem_de_som](https://github.com/LeMetadatarr/nuvem_de_som) | SoundCloud client |
+| [audiobooker](https://github.com/LeMetadatarr/audiobooker) | Public-domain audiobooks (LibriVox, LoyalBooks, Anna's Archive) |
+| [pymetal](https://github.com/LeMetadatarr/pymetal) | Metal Archives client |
+| [pyclassicalarchives](https://github.com/LeMetadatarr/pyclassicalarchives) | Classical Archives client |
+| [pyjazzmusicarchives](https://github.com/LeMetadatarr/pyjazzmusicarchives) | Jazz Music Archives client |
+| [pyprogarchives](https://github.com/LeMetadatarr/pyprogarchives) | Prog Archives client |
+| [pyrateyourmusic](https://github.com/LeMetadatarr/pyrateyourmusic) | RateYourMusic (Sonemic) scraper |
+| [py-music-assistant](https://github.com/LeMetadatarr/py-music-assistant) | Music Assistant server API client |
+| [xazam](https://github.com/LeMetadatarr/xazam) | Async Shazam API client |
+| [pyheartradio](https://github.com/LeMetadatarr/pyheartradio) | iHeartRadio API client |
+| [tunein](https://github.com/LeMetadatarr/tunein) | TuneIn radio and IPTV scraper |
+
+## Video / anime
+
+| Repo | Purpose |
+| --- | --- |
+| [tutubo](https://github.com/LeMetadatarr/tutubo) | YouTube scraper — channels, videos, music, podcasts, livestreams, IPTV |
+| [pyimdb](https://github.com/LeMetadatarr/pyimdb) | IMDb client (suggestion API, bulk datasets, page crawl) |
+| [pymal](https://github.com/LeMetadatarr/pymal) | MyAnimeList client (anime, manga, characters, ARM cross-references) |
+
+## Games / ROM hacking
+
+| Repo | Purpose |
+| --- | --- |
+| [pyromhacking](https://github.com/LeMetadatarr/pyromhacking) | romhacking.net (RHDN) — ROM hacks, fan translations, patching utilities |
+| [pysmwcentral](https://github.com/LeMetadatarr/pysmwcentral) | smwcentral.net public API client |
+| [pytcrf](https://github.com/LeMetadatarr/pytcrf) | The Cutting Room Floor — unused/cut/debug game content |
+| [pyvndb](https://github.com/LeMetadatarr/pyvndb) | VNDB (Visual Novel Database) client |
+
+## Psychonautics / harm reduction
+
+| Repo | Purpose |
+| --- | --- |
+| [pyerowid](https://github.com/LeMetadatarr/pyerowid) | Erowid client and markdown dataset dumper |
+| [pypsychonaut](https://github.com/LeMetadatarr/pypsychonaut) | PsychonautWiki client and markdown dataset dumper |
+| [pytripsit](https://github.com/LeMetadatarr/pytripsit) | TripSit drug factsheets and interaction matrix |
+
+## Reference
+
+| Repo | Purpose |
+| --- | --- |
+| [pygutenberg](https://github.com/LeMetadatarr/pygutenberg) | Project Gutenberg client (Gutendex API, public-domain text, bulk catalog) |
+| [pytvtropes](https://github.com/LeMetadatarr/pytvtropes) | tvtropes.org scraper |
