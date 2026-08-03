@@ -61,6 +61,7 @@ block plain HTTP requests.
 | [xazam](https://github.com/LeMetadatarr/xazam) | Async Shazam API client |
 | [pyheartradio](https://github.com/LeMetadatarr/pyheartradio) | iHeartRadio API client |
 | [tunein](https://github.com/LeMetadatarr/tunein) | TuneIn radio and IPTV scraper |
+| [radiosoma](https://github.com/LeMetadatarr/radiosoma) | SOMA FM client — typed Releases (one per encoding) and schedule data |
 
 ## Video / anime
 
@@ -69,6 +70,7 @@ block plain HTTP requests.
 | [tutubo](https://github.com/LeMetadatarr/tutubo) | YouTube scraper — channels, videos, music, podcasts, livestreams, IPTV |
 | [pyimdb](https://github.com/LeMetadatarr/pyimdb) | IMDb client (suggestion API, bulk datasets, page crawl) |
 | [pymal](https://github.com/LeMetadatarr/pymal) | MyAnimeList client (anime, manga, characters, ARM cross-references) |
+| [pyfanedit](https://github.com/LeMetadatarr/pyfanedit) | fanedit.org / IFDB scraper — typed Releases with variant kind, source format, and fan-edit lineage |
 
 ## Games / ROM hacking
 
@@ -104,11 +106,26 @@ PodcastIndex) ship inside [metadatarr](https://github.com/LeMetadatarr/metadatar
 and publish to the [Books & Podcasts](https://huggingface.co/collections/LeData/books-and-podcasts-6a49531b6f0b826071942f29)
 collection.
 
+## Language / linguistics
+
+Lexical and reference-language clients. Their datasets feed pronunciation,
+phonemization, and NLP work rather than the media catalogues.
+
+| Repo | Purpose |
+| --- | --- |
+| [pywiktionary](https://github.com/LeMetadatarr/pywiktionary) | Wiktionary client — definitions, pronunciations (IPA), and cross-references |
+| [pyportaldalingua](https://github.com/LeMetadatarr/pyportaldalingua) | Portal da Língua Portuguesa client — lexicon and external ids |
+| [pyinfopedia](https://github.com/LeMetadatarr/pyinfopedia) | Infopédia client — dictionary entries, verbs, and pronunciations |
+| [pywod](https://github.com/LeMetadatarr/pywod) | Word-of-the-day aggregator across dictionary sources |
+
 ## Media reference
 
 | Repo | Purpose |
 | --- | --- |
 | [pytvtropes](https://github.com/LeMetadatarr/pytvtropes) | tvtropes.org scraper |
+| [pyliveatc](https://github.com/LeMetadatarr/pyliveatc) | LiveATC.net client — ATC audio feed search, streaming, and archive/dataset export |
+| [PyWikiHow](https://github.com/LeMetadatarr/PyWikiHow) | wikiHow client — how-to articles and step data |
+| [pyinspirobot](https://github.com/LeMetadatarr/pyinspirobot) | InspiroBot API client — generated inspirational images |
 
 ## AI transparency
 
